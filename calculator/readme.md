@@ -7,3 +7,7 @@ This is a simple web-based calculator built with Flask and HTML, supporting oper
 ```bash
 pip install -r requirements.txt
 python app.py
+
+## 🔗 Live Demo
+
+[Click here to use the calculator](https://codesoft-z40n.onrender.com)
