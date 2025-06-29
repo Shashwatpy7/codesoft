@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            background-color: aliceblue;
+        }
+        .Input-form{
+            width: 80vw;
+            height: 80vh;
+            background-color: rgb(186, 211, 233);
+            padding: 30px;
+            box-sizing: border-box;
+            border-radius: 5%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" >
+        <div class="Input-form">
+            <form method="post">
+                <fieldset>
+                    <legend><h1>CALCULATOR</h1></legend>
+                    <label for="num1">First Number: </label>
+                    <input type="number" id="num1" name="num1" required>
+                    
+                    <br><br>
+                    
+                    <label for="operation">Operator:</label>
+                    <select name="operator" id="operation">
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                        <option value="*">*</option>
+                        <option value="/">/</option>
+                        <option value="//">//</option>
+                        <option value="sin">sin</option>
+                        <option value="cos">cos</option>
+                        <option value="tan">tan</option>
+                        <option value="log">log</option>
+                        <option value="exp">exp</option>
+                    </select>
+                    
+                    <br><br>
+
+                    <label for="num2">Second Number(optional)</label>
+                    <input type="number" id="num2" name="num2">
+
+                    <br><br>
+
+                    <input type="submit" value="Calculate">
+                </fieldset>
+            </form>
+            
+            <br>
+            <hr>
+            
+            {% if result is not none %}
+                <h2>Result : {{ result }}</h2>
+           
+            {% endif %}
+        
+        </div>
+    </div>
+</body>
+</html>
