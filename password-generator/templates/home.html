@@ -1,0 +1,99 @@
+{% from "_render_field.html" import render_field %}
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PassWord Generator</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    
+    <style>
+       .form-group {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .field-set {
+            background-color: #2b2b2b;
+            color: #ffffff;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            border: 2px solid #444;
+        }
+
+        input, select, textarea {
+            background-color: #1f1f1f;
+            color: #fff;
+            border: 1px solid #555;
+        }
+
+        legend {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        #lgnd-txt{
+          font-family: "Exo 2", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: 400;
+          font-style: oblique;
+        }
+    </style>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body class="bg-dark text-light">
+    <div class="container py-5">
+        <div class="d-flex justify-content-center">
+            <form method="post" action="">
+                <fieldset class="field-set"> 
+                    <legend id="lgnd-txt">Details</legend>
+
+                    {{ form.csrf_token }}
+
+                    {{ render_field(form.fullname) }}
+
+                    {{ render_field(form.dateofbirth) }}
+
+                    {{ render_field(form.length) }}
+
+                    {{ form.submit }}
+                </fieldset>
+            </form>
+        </div>
+        {% if passwords %}
+            <div class="mt-5">
+                <h4>Generated Passwords:</h4>
+                {% for password in passwords %}
+                    <div class="alert alert-success d-flex justify-content-between align-items-center mt-2">
+                        <span id="password-{{ loop.index }}">{{ password }}</span>
+                        <button class="btn btn-outline-light btn-sm" onclick="copyToClipboard('password-{{ loop.index }}')">Copy</button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    <script>
+        function copyToClipboard(elementId) {
+            const text = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Password copied to clipboard!");
+            }).catch((err) => {
+                alert("Failed to copy: " + err);
+            });
+        }
+    </script>
+</body>
+</html>
