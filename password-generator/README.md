@@ -22,6 +22,4 @@ python app.py
 
 ## 🔗 Live Demo
 
-[Click here to use the calculator](## 🔗 Live Demo
-
 [Click here to use the calculator](https://password-generator-svle.onrender.com))
