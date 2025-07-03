@@ -26,4 +26,4 @@ python app.py
 
 ## 🔗 Live Demo
 
-[Click here to use the game](https://password-generator-svle.onrender.com)
+[Click here to use the game](https://rock-paper-scissor-dd97.onrender.com)
