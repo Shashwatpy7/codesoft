@@ -24,8 +24,8 @@ This repository contains 3 beginner-friendly projects built using **Python** and
 #### Clone the repository
 
 ```bash
-git clone https://github.com/Shashwatpy7/codesoft.git
-cd codsoft
+git clone https://github.com/Shashwatpy7/Codsoft.git
+cd Codsoft
 ```
 
 #### Run each project:
